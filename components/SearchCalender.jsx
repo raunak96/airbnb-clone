@@ -1,7 +1,7 @@
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRangePicker } from "react-date-range";
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 
 /**
  * DateRangePicker component - basically a calender to select a range of dates
@@ -9,9 +9,7 @@ import { useMemo, useState } from "react";
  * rangeColors - color corresponding to each range of date selected
  * minDate - Earliest start Date possible - (in this case today as we cant book in past)
  **/
-const SearchCalender = () => {
-	const [startDate, setStartDate] = useState(new Date());
-	const [endDate, setEndDate] = useState(new Date());
+const SearchCalender = ({ startDate, endDate, setStartDate, setEndDate }) => {
 	const selectionRange = useMemo(
 		() => ({
 			startDate,

@@ -3,24 +3,41 @@ import SearchIcon from "../icons/search.svg";
 import GlobeIcon from "../icons/globe.svg";
 import MenuIcon from "../icons/menu.svg";
 import UserIcon from "../icons/user.svg";
-import { useRef, useState } from "react";
-import SearchCalender from "./SearchCalender";
+import { useMemo, useState } from "react";
+import SearchParams from "./SearchParams";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { formatDate } from "../utils";
 
 const Header = () => {
 	const [searchInput, setSearchInput] = useState("");
-	const guestsRef = useRef(null);
+	const { query } = useRouter();
+	const { location, startDate, endDate, noOfGuests } = query;
+
+	const placeholder = useMemo(() => {
+		if (Object.keys(query).length > 0)
+			return `${location} | ${formatDate(startDate)} - ${formatDate(
+				endDate
+			)} | ${noOfGuests} guest${noOfGuests > 1 && "s"}`;
+		return "Start your Search";
+	}, [location, startDate, endDate, noOfGuests]);
+
 	return (
 		<header className="sticky top-0 z-50 bg-white shadow-md p-5 md:px-10 grid grid-cols-3 items-center ">
-			<LogoIcon className="h-8 sm:h-10 cursor-pointer" />
-			<div className="flex items-center sm:border-2 rounded-full py-3 px-3 sm:shadow-sm focus-within:shadow-md space-x-2">
+			<Link href="/">
+				<a>
+					<LogoIcon className="h-8 sm:h-10 cursor-pointer" />
+				</a>
+			</Link>
+			<div className="flex items-center sm:border-2 rounded-full py-3 px-5 sm:shadow-sm focus-within:shadow-md space-x-2">
 				<input
 					type="text"
-					placeholder="Start your Search"
-					className="bg-transparent outline-none flex-1 text-sm text-gray-600 placeholder-gray-400"
+					placeholder={placeholder}
+					className="bg-transparent outline-none flex-1 overflow-hidden text-sm text-gray-600 placeholder-gray-400"
 					value={searchInput}
 					onChange={e => setSearchInput(e.target.value)}
 				/>
-				<SearchIcon className="hidden md:block h-8 bg-[#FF385C] text-white rounded-full p-2 cursor-pointer" />
+				<SearchIcon className="hidden md:inline-block h-8 bg-[#FF385C] text-white rounded-full p-2 cursor-pointer" />
 			</div>
 			<div className="flex justify-end space-x-4 items-center text-gray-700">
 				<p className="hidden md:block cursor-pointer p-3 hover:bg-gray-100 rounded-full font-semibold">
@@ -36,32 +53,10 @@ const Header = () => {
 			</div>
 
 			{searchInput && (
-				<div className="col-span-3 mx-auto mt-2">
-					<SearchCalender />
-					<div className="flex items-center justify-between border-b pb-4">
-						<h2 className="text-2xl font-semibold ">
-							Number of guests
-						</h2>
-						<div className="flex space-x-2 items-center p-2">
-							<UserIcon className="h-5" />
-							<input
-								defaultValue={1}
-								ref={guestsRef}
-								min={1}
-								type="number"
-								className="outline-none w-10 pl-2 text-lg text-[#FF385C]"
-							/>
-						</div>
-					</div>
-					<div className="flex justify-around mt-2">
-						<button
-							className="text-gray-500"
-							onClick={() => setSearchInput("")}>
-							Cancel
-						</button>
-						<button className="text-[#FF385C]">Search</button>
-					</div>
-				</div>
+				<SearchParams
+					location={searchInput}
+					setLocation={setSearchInput}
+				/>
 			)}
 		</header>
 	);

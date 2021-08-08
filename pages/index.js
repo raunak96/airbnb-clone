@@ -2,16 +2,12 @@ import AmenityCard from "../components/AmenityCard";
 import Banner from "../components/Banner";
 import CityCard from "../components/CityCard";
 import EndBanner from "../components/EndBanner";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
 import Layout from "../components/Layout";
 import { getAllData } from "../lib/gql";
 
-export default function Home({ cities, amenities }) {
+const HomePage = ({ cities, amenities }) => {
 	return (
 		<Layout>
-			<Header />
-
 			<Banner />
 
 			<main className="container mx-auto px-8 sm:px-16">
@@ -39,10 +35,9 @@ export default function Home({ cities, amenities }) {
 
 				<EndBanner />
 			</main>
-			<Footer />
 		</Layout>
 	);
-}
+};
 
 export async function getStaticProps(context) {
 	const { cities, amenities } = await getAllData();
@@ -50,3 +45,5 @@ export async function getStaticProps(context) {
 		props: { cities, amenities },
 	};
 }
+
+export default HomePage;

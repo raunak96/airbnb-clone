@@ -1,6 +1,8 @@
 import Head from "next/head";
+import Footer from "./Footer";
+import Header from "./Header";
 
-const Layout = ({ title, keywords, description, children, categories }) => {
+const Layout = ({ title, keywords, description, children }) => {
 	return (
 		<>
 			<Head>
@@ -15,7 +17,9 @@ const Layout = ({ title, keywords, description, children, categories }) => {
 				/>
 				<link rel="icon" href="/favicon.ico" type="image/x-icon" />
 			</Head>
-			<div>{children}</div>
+			<Header />
+			{children}
+			<Footer />
 		</>
 	);
 };
