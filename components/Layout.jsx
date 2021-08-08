@@ -2,9 +2,10 @@ import Head from "next/head";
 
 const Layout = ({ title, keywords, description, children, categories }) => {
 	return (
-		<div className="App">
+		<>
 			<Head>
 				<title>{title}</title>
+				<meta name="viewport" content="width=400" />
 				<meta name="description" content={description} />
 				<meta name="keywords" content={keywords.join(", ")} />
 				<link
@@ -15,7 +16,7 @@ const Layout = ({ title, keywords, description, children, categories }) => {
 				<link rel="icon" href="/favicon.ico" type="image/x-icon" />
 			</Head>
 			<div>{children}</div>
-		</div>
+		</>
 	);
 };
 
