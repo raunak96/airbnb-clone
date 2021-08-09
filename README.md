@@ -1,5 +1,8 @@
 [![wakatime](https://wakatime.com/badge/github/raunak96/airbnb-clone.svg)](https://wakatime.com/badge/github/raunak96/airbnb-clone)
-# Airbnb Clone with NextJS + Map (with react-map-gl - Mapbox) + Date Picker + Tailwind CSS
+# Airbnb Clone with NextJS + Map (with react-map-gl - Mapbox) + Date Picker + Tailwind CSS + Contentful CMS
+
+![App Demo](/assets/app-demo.png)
+### [View Demo](https://rawn-airbnb.vercel.app/).
 
 ### Selecting Date Range in Calender
 - For selecting a range of dates, we use [react-date-range](https://github.com/hypeserver/react-date-range) pkg.
