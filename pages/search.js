@@ -1,20 +1,20 @@
 import { useRouter } from "next/router";
 import InfoCard from "../components/InfoCard";
 import Layout from "../components/Layout";
+import Map from "../components/Map";
 import { getAllInns } from "../lib/gql";
 import { formatDate } from "../utils";
 
 const SearchResultPage = ({ total, inns }) => {
 	const { query } = useRouter();
 	const { location, startDate, endDate, noOfGuests } = query;
-
 	return (
 		<Layout
 			title={`${location[0].toUpperCase()}${location.slice(
 				1
 			)} · Stays · Airbnb 2.0`}>
-			<main className="flex pl-12 pt-10">
-				<section className="flex-1">
+			<main className="flex pl-12">
+				<section className="flex-1 pt-10">
 					<p className="text-sm text-gray-800">
 						300+ stays &#183; {formatDate(startDate)} -&nbsp;
 						{formatDate(endDate)} &#183; {noOfGuests} guest
@@ -35,6 +35,10 @@ const SearchResultPage = ({ total, inns }) => {
 							<InfoCard key={inn.sys.id} {...inn} />
 						))}
 					</div>
+				</section>
+
+				<section className="hidden xl:flex min-w-[600px]">
+					<Map locations={inns} />
 				</section>
 			</main>
 		</Layout>

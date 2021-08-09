@@ -1,29 +1,10 @@
-# Next.js + Tailwind CSS Example
+[![wakatime](https://wakatime.com/badge/github/raunak96/airbnb-clone.svg)](https://wakatime.com/badge/github/raunak96/airbnb-clone)
+# Airbnb Clone with NextJS + Map (with react-map-gl - Mapbox) + Date Picker + Tailwind CSS
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v2.2)](https://blog.tailwindcss.com/tailwindcss-2-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+### Selecting Date Range in Calender
+- For selecting a range of dates, we use [react-date-range](https://github.com/hypeserver/react-date-range) pkg.
 
-It uses the new [`Just-in-Time Mode`](https://tailwindcss.com/docs/just-in-time-mode) for Tailwind CSS.
-
-## Preview
-
-Preview the example live on [StackBlitz](http://stackblitz.com/):
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
-
-## Deploy your own
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+### Displaying Coordinates of a number of places together in Map
+- For displaying map, we use [react-map-gl](https://github.com/visgl/react-map-gl) pkg which is a react friendly API wrapper around **MapboxGL JS**.
+- Since, this Map component, can take in only 1 lat and lng but we had an array of lat and lng, to solve this problem, we use [geolib](https://github.com/manuelbieh/geolib) pkg's `getCenter` function, which takes an array of lat and lng and returns a single lat and lng representing the center of the given array of lat and lng.
+- Finally we pass, this centered coordinate, which ensures our map is centered around all the coordinates.
