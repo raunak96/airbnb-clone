@@ -23,13 +23,13 @@ const Header = () => {
 	}, [location, startDate, endDate, noOfGuests]);
 
 	return (
-		<header className="sticky top-0 z-50 bg-white shadow-md p-5 md:px-10 grid grid-cols-3 items-center ">
+		<header className="sticky top-0 z-50 bg-white shadow-md p-5 md:px-10 grid grid-cols-4 lg:grid-cols-3 items-center gap-x-2">
 			<Link href="/">
 				<a>
 					<LogoIcon className="h-8 sm:h-10 cursor-pointer" />
 				</a>
 			</Link>
-			<div className="flex items-center sm:border-2 rounded-full py-3 px-5 sm:shadow-sm focus-within:shadow-md space-x-2">
+			<div className="flex items-center sm:border-2 rounded-full py-3 px-5 sm:shadow-sm focus-within:shadow-md space-x-2 col-span-2 lg:col-span-1">
 				<input
 					type="text"
 					placeholder={placeholder}
@@ -40,7 +40,7 @@ const Header = () => {
 				<SearchIcon className="hidden md:inline-block h-8 bg-[#FF385C] text-white rounded-full p-2 cursor-pointer" />
 			</div>
 			<div className="flex justify-end space-x-4 items-center text-gray-700">
-				<p className="hidden md:block cursor-pointer p-3 hover:bg-gray-100 rounded-full font-semibold">
+				<p className="hidden lg:block cursor-pointer p-3 hover:bg-gray-100 rounded-full font-semibold">
 					Become a host
 				</p>
 				<div className="hidden md:block p-3 hover:bg-gray-100 rounded-full">
