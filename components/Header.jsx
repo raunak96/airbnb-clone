@@ -26,7 +26,7 @@ const Header = () => {
 		<header className="sticky top-0 z-50 bg-white shadow-md p-5 md:px-10 grid grid-cols-4 lg:grid-cols-3 items-center gap-x-2">
 			<Link href="/">
 				<a>
-					<LogoIcon className="h-8 sm:h-10 cursor-pointer" />
+					<LogoIcon className="h-6 xs:h-8 sm:h-10 cursor-pointer" />
 				</a>
 			</Link>
 			<div className="flex items-center sm:border-2 rounded-full py-3 px-5 sm:shadow-sm focus-within:shadow-md space-x-2 col-span-2 lg:col-span-1">
