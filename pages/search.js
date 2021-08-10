@@ -13,12 +13,12 @@ const SearchResultPage = ({ total, inns }) => {
 			title={`${location[0].toUpperCase()}${location.slice(
 				1
 			)} · Stays · Airbnb 2.0`}>
-			<main className="flex pl-12">
+			<main className="flex flex-col-reverse lg:flex-row pl-12">
 				<section className="flex-1 pt-10">
 					<p className="text-sm text-gray-800">
 						300+ stays &#183; {formatDate(startDate)} -&nbsp;
 						{formatDate(endDate)} &#183; {noOfGuests} guest
-						{noOfGuests > 1 && "s"}
+						{noOfGuests > 1 ? "s" : ""}
 					</p>
 					<h1 className="text-2xl mt-2 mb-6">
 						Stays in {location} ({total} result{total > 1 && "s"})
@@ -37,7 +37,7 @@ const SearchResultPage = ({ total, inns }) => {
 					</div>
 				</section>
 
-				<section className="hidden xl:flex min-w-[600px]">
+				<section className="lg:min-w-[600px] ">
 					<Map locations={inns} />
 				</section>
 			</main>

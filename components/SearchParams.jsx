@@ -24,7 +24,7 @@ const SearchParams = ({ location, setLocation }) => {
 	};
 	return (
 		<form
-			className="max-w-full col-span-4 lg:col-span-3 mx-auto mt-2 overflow-x-auto"
+			className="max-w-full col-span-4 lg:col-span-3 mx-auto mt-2 overflow-x-auto scrollbar-hide"
 			onSubmit={handleSubmit}>
 			<SearchCalender
 				startDate={startDate}

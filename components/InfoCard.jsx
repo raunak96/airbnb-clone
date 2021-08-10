@@ -13,8 +13,8 @@ const InfoCard = ({
 	location,
 }) => {
 	return (
-		<div className="flex space-x-5 py-7 px-2 border-b cursor-pointer hover:opacity-80 hover:shadow-lg hover:scale-y-105 transition duration-200 ease-out first:border-t">
-			<div className="relative h-24 w-40 md:h-52 md:w-80">
+		<div className="flex flex-col sm:flex-row sm:space-x-5 space-y-5 py-7 px-2 border-b cursor-pointer hover:opacity-80 hover:shadow-lg hover:scale-y-105 transition duration-200 ease-out first:border-t">
+			<div className="relative w-full h-40 sm:h-24 sm:w-40 md:h-52 md:w-80">
 				<Image
 					src={image[0].secure_url}
 					layout="fill"

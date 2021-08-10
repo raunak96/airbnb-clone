@@ -18,7 +18,7 @@ const Header = () => {
 		if (Object.keys(query).length > 0)
 			return `${location} | ${formatDate(startDate)} - ${formatDate(
 				endDate
-			)} | ${noOfGuests} guest${noOfGuests > 1 && "s"}`;
+			)} | ${noOfGuests} guest${noOfGuests > 1 ? "s" : ""}`;
 		return "Start your Search";
 	}, [location, startDate, endDate, noOfGuests]);
 

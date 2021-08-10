@@ -4,7 +4,7 @@ import Header from "./Header";
 
 const Layout = ({ title, keywords, description, children }) => {
 	return (
-		<>
+		<div className="overflow-x-hidden">
 			<Head>
 				<title>{title}</title>
 				<meta name="viewport" content="width=400" />
@@ -20,7 +20,7 @@ const Layout = ({ title, keywords, description, children }) => {
 			<Header />
 			{children}
 			<Footer />
-		</>
+		</div>
 	);
 };
 
